@@ -1,0 +1,46 @@
+{
+  "variants": {
+    "facing=east,type=bottom": {
+      "model": "cityblocks:block/road/road_solid_slab",
+      "y": 90
+    },
+    "facing=north,type=bottom": {
+      "model": "cityblocks:block/road/road_solid_slab"
+    },
+    "facing=west,type=bottom": {
+      "model": "cityblocks:block/road/road_solid_slab",
+      "y": 90
+    },
+    "facing=south,type=bottom": {
+      "model": "cityblocks:block/road/road_solid_slab"
+    },
+    "facing=east,type=double": {
+      "model": "cityblocks:block/road/road_solid",
+      "y": 90
+    },
+    "facing=north,type=double": {
+      "model": "cityblocks:block/road/road_solid"
+    },
+    "facing=west,type=double": {
+      "model": "cityblocks:block/road/road_solid",
+      "y": 90
+    },
+    "facing=south,type=double": {
+      "model": "cityblocks:block/road/road_solid"
+    },
+    "facing=east,type=top": {
+      "model": "cityblocks:block/road/road_solid_slab_top",
+      "y": 90
+    },
+    "facing=north,type=top": {
+      "model": "cityblocks:block/road/road_solid_slab_top"
+    },
+    "facing=west,type=top": {
+      "model": "cityblocks:block/road/road_solid_slab_top",
+      "y": 90
+    },
+    "facing=south,type=top": {
+      "model": "cityblocks:block/road/road_solid_slab_top"
+    }
+  }
+}

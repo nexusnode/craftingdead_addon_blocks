@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "cityblocks:road_solid"
+    }
+  },
+  "result": {
+    "item": "cityblocks:road_solid_slab",
+    "count": 6
+  }
+}

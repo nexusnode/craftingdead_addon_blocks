@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "cityblocks:block/stop_sign",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "cityblocks:block/stop_sign"
+    },
+    "facing=west": {
+      "model": "cityblocks:block/stop_sign",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "cityblocks:block/stop_sign",
+      "y": 180
+    }
+  }
+}

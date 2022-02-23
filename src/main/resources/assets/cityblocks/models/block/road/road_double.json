@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "cityblocks:block/road/road_double",
+    "front": "cityblocks:block/road/road_blank",
+    "side": "cityblocks:block/road/road_blank"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iIi",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "result": {
+    "item": "cityblocks:steel_pole_barrier",
+    "count": 3
+  }
+}

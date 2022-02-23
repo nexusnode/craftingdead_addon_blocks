@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cityblocks:block/sandbag_slab"
+    },
+    "type=double": {
+      "model": "cityblocks:block/sandbag"
+    },
+    "type=top": {
+      "model": "cityblocks:block/sandbag_slab_top"
+    }
+  }
+}

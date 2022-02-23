@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "cityblocks:block/steel_pole_barrier_slab",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "cityblocks:block/steel_pole_barrier_slab"
+    },
+    "facing=west": {
+      "model": "cityblocks:block/steel_pole_barrier_slab",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "cityblocks:block/steel_pole_barrier_slab",
+      "y": 180
+    }
+  }
+}

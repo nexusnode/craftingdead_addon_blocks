@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "cityblocks:block/road/road_blank",
+    "top": "cityblocks:block/road/road_blank",
+    "side": "cityblocks:block/road/road_blank"
+  }
+}

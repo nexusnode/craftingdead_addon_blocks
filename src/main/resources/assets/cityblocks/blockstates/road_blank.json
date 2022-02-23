@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "":  { "model": "cityblocks:block/road/road_blank" }
+  }
+}

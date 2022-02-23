@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "cityblocks:block/vending_machine",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "cityblocks:block/vending_machine"
+    },
+    "facing=west": {
+      "model": "cityblocks:block/vending_machine",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "cityblocks:block/vending_machine",
+      "y": 180
+    }
+  }
+}

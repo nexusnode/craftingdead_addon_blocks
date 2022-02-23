@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "cityblocks:block/street_light/street_light_horizontal_pole",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "cityblocks:block/street_light/street_light_horizontal_pole"
+    },
+    "facing=west": {
+      "model": "cityblocks:block/street_light/street_light_horizontal_pole",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cityblocks:block/street_light/street_light_horizontal_pole"
+    }
+  }
+}

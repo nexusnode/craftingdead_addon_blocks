@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "cityblocks:road_solid"
+  },
+  "result": "cityblocks:road_solid_slab",
+  "count": 2
+}
