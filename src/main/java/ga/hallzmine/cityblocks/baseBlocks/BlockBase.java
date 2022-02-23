@@ -1,23 +1,26 @@
 package ga.hallzmine.cityblocks.baseBlocks;
 
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BlockBase extends Block {
-    private VoxelShape voxelshape;
-    public BlockBase(Properties properties, VoxelShape voxelshapes) {
-        super(properties);
-        this.voxelshape = voxelshapes;
-    }
 
-    @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+  private final VoxelShape voxelshape;
 
-        return this.voxelshape;
-    }
+  public BlockBase(Properties properties, VoxelShape voxelshapes) {
+    super(properties);
+    this.voxelshape = voxelshapes;
+  }
+
+  @Override
+  public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos,
+      CollisionContext context) {
+
+    return this.voxelshape;
+  }
 }

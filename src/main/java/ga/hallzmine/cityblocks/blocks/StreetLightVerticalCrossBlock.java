@@ -1,54 +1,56 @@
 package ga.hallzmine.cityblocks.blocks;
 
 import ga.hallzmine.cityblocks.baseBlocks.OrientableBlockBase;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.IBooleanFunction;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
-
-import static net.minecraft.block.HorizontalBlock.HORIZONTAL_FACING;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class StreetLightVerticalCrossBlock extends OrientableBlockBase {
 
 
+  public StreetLightVerticalCrossBlock() {
+    super(Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion());
+    runCalculation(
+        Shapes.join(Block.box(7, 0, 7, 9, 16, 9), Block.box(7, 7, 0, 9, 9, 16), BooleanOp.OR));
+  }
 
-    public StreetLightVerticalCrossBlock() {
-        super(Properties.create(Material.ROCK).hardnessAndResistance(5.0f, 5.0f).notSolid());
-        runCalculation(VoxelShapes.combineAndSimplify(Block.makeCuboidShape(7, 0, 7, 9, 16, 9), Block.makeCuboidShape(7, 7, 0, 9, 9, 16), IBooleanFunction.OR));
-    }
-    protected static final Map<Direction, VoxelShape> SHAPES = new HashMap<Direction, VoxelShape>();
-    protected static void calculateShapes(Direction to, VoxelShape shape) {
-        VoxelShape[] buffer = new VoxelShape[] { shape, VoxelShapes.empty() };
+  protected static final Map<Direction, VoxelShape> SHAPES = new HashMap<Direction, VoxelShape>();
 
-        int times = (to.getHorizontalIndex() - Direction.NORTH.getHorizontalIndex() + 4) % 4;
-        for (int i = 0; i < times; i++) {
-            buffer[0].forEachBox((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = VoxelShapes.or(buffer[1],
-                    VoxelShapes.create(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
-            buffer[0] = buffer[1];
-            buffer[1] = VoxelShapes.empty();
-        }
+  protected static void calculateShapes(Direction to, VoxelShape shape) {
+    VoxelShape[] buffer = new VoxelShape[]{shape, Shapes.empty()};
 
-        SHAPES.put(to, buffer[0]);
+    int times = (to.get2DDataValue() - Direction.NORTH.get2DDataValue() + 4) % 4;
+    for (int i = 0; i < times; i++) {
+      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = Shapes.or(buffer[1],
+          Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
+      buffer[0] = buffer[1];
+      buffer[1] = Shapes.empty();
     }
-    protected void runCalculation(VoxelShape shape) {
-        for (Direction direction : Direction.values()) {
-            calculateShapes(direction, shape);
-        }
+
+    SHAPES.put(to, buffer[0]);
+  }
+
+  protected void runCalculation(VoxelShape shape) {
+    for (Direction direction : Direction.values()) {
+      calculateShapes(direction, shape);
     }
-    @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPES.get(state.get(HORIZONTAL_FACING));
-    }
+  }
+
+  @Override
+  public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos,
+      CollisionContext context) {
+    return SHAPES.get(state.getValue(HorizontalDirectionalBlock.FACING));
+  }
 
 
 }
