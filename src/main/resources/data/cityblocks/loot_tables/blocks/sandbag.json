@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "cityblocks:sandbags"
+          "name": "cityblocks:sandbag"
         }
       ]
     }
