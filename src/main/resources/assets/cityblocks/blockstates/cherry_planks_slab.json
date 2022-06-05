@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "cityblocks:block/cherry_planks_slab_top"
+    },
+    "type=bottom": {
+      "model": "cityblocks:block/cherry_planks_slab"
+    },
+    "type=double": {
+      "model": "cityblocks:block/cherry_planks"
+    }
+  }
+}

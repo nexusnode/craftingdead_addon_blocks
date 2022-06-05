@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cityblocks:block/crying_obsidian_kitchen_tile"
+  }
+}

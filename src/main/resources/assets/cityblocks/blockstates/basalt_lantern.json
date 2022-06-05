@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "cityblocks:block/basalt_lantern"
+    },
+    "hanging=true": {
+      "model": "cityblocks:block/basalt_lantern_hanging"
+    }
+  }
+}

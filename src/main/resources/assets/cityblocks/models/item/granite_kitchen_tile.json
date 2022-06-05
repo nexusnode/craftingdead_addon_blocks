@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cityblocks:block/granite_kitchen_tile"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "cityblocks:block/flowerpot",
+  "textures": {
+    "0": "block/oak_log",
+    "1": "cityblocks:block/leaves",
+    "3": "block/terracotta",
+    "particle": "block/oak_log"
+  }
+}

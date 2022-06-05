@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "":  { "model": "cityblocks:block/tables/jungle_table" }
+  }
+}

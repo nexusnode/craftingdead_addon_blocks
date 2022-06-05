@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "":  { "model": "cityblocks:block/tables/warped_stem_table" }
+  }
+}

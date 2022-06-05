@@ -38,6 +38,54 @@ public class CityBlocksMod {
         RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(RegistryHandler.STREET_LIGHT_HEAD.get(),
         RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.CHERRY_LEAVES.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GOLD_CHAIN.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BASALT_LANTERN.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.COUNTER.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.COUNTER_CORNER.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.COUNTER_SINK.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.SINK.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PLATE.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.WHITE_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLACK_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.RED_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLUE_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GREEN_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.ORANGE_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.MAGENTA_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_BLUE_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.YELLOW_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIME_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PINK_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GRAY_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_GRAY_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.CYAN_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PURPLE_CHAIR.get(),
+        RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BROWN_CHAIR.get(),
+        RenderType.translucent());
   }
 
   // You can use SubscribeEvent and let the Event Bus discover methods to call
