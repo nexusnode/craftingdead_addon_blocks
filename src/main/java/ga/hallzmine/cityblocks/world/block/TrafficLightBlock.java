@@ -1,7 +1,7 @@
 package ga.hallzmine.cityblocks.world.block;
 
-import java.util.HashMap;
 import java.util.Map;
+import ga.hallzmine.cityblocks.world.BlockShapes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -10,36 +10,15 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TrafficLightBlock extends OrientableBlockBase {
 
-  protected static final Map<Direction, VoxelShape> SHAPES = new HashMap<Direction, VoxelShape>();
+  protected static final Map<Direction, VoxelShape> SHAPES =
+      BlockShapes.computeOrientableShape(Block.box(5, 0, 21, 11, 16, 23));
 
   public TrafficLightBlock() {
     super(Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion());
-    runCalculation(Block.box(5, 0, 21, 11, 16, 23));
-  }
-
-  protected static void calculateShapes(Direction to, VoxelShape shape) {
-    VoxelShape[] buffer = new VoxelShape[] {shape, Shapes.empty()};
-
-    int times = (to.get2DDataValue() - Direction.NORTH.get2DDataValue() + 4) % 4;
-    for (int i = 0; i < times; i++) {
-      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] =
-          Shapes.or(buffer[1], Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
-      buffer[0] = buffer[1];
-      buffer[1] = Shapes.empty();
-    }
-
-    SHAPES.put(to, buffer[0]);
-  }
-
-  protected void runCalculation(VoxelShape shape) {
-    for (Direction direction : Direction.values()) {
-      calculateShapes(direction, shape);
-    }
   }
 
   @Override
@@ -47,7 +26,4 @@ public class TrafficLightBlock extends OrientableBlockBase {
       CollisionContext context) {
     return SHAPES.get(state.getValue(HorizontalDirectionalBlock.FACING));
   }
-
-
 }
-
