@@ -1,26 +1,12 @@
 package ga.hallzmine.cityblocks.world;
 
 import ga.hallzmine.cityblocks.CityBlocksMod;
-import ga.hallzmine.cityblocks.world.block.BlockBase;
-import ga.hallzmine.cityblocks.world.block.ConcreteBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.OrientableBlockBase;
+import ga.hallzmine.cityblocks.world.block.BlockShapes;
+import ga.hallzmine.cityblocks.world.block.OrientableShapedBlock;
+import ga.hallzmine.cityblocks.world.block.ShapedBlock;
+import ga.hallzmine.cityblocks.world.block.OrientableBlock;
 import ga.hallzmine.cityblocks.world.block.OrientableSlabBlockBase;
 import ga.hallzmine.cityblocks.world.block.OrientableTallBlock;
-import ga.hallzmine.cityblocks.world.block.PoleBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.RoadBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.SlabConcreteBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.SlabSteelPoleBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.SlabStripedConcreteBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.SteelPoleBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.StopSignBlock;
-import ga.hallzmine.cityblocks.world.block.StreetLightCurveBlock;
-import ga.hallzmine.cityblocks.world.block.StreetLightDoubleCurveBlock;
-import ga.hallzmine.cityblocks.world.block.StreetLightHeadBlock;
-import ga.hallzmine.cityblocks.world.block.StreetLightHorizontalBlock;
-import ga.hallzmine.cityblocks.world.block.StreetLightVerticalCrossBlock;
-import ga.hallzmine.cityblocks.world.block.StripedConcreteBarrierBlock;
-import ga.hallzmine.cityblocks.world.block.TrafficLightBlock;
-import ga.hallzmine.cityblocks.world.block.UnlitPoleBarrierBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.LanternBlock;
@@ -67,8 +53,7 @@ public class BlockRegistryHandler {
       BLOCKS.register("stripped_cherry_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties
           .of(Material.WOOD, MaterialColor.COLOR_PINK).strength(2.0F).sound(SoundType.WOOD)));
   public static final RegistryObject<Block> COUNTER_SOLID = BLOCKS.register("counter_solid",
-      () -> new BlockBase(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f),
-          Block.box(0, 0, 0, 16, 16, 16)));
+      () -> new Block(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> KITCHEN_TILE = BLOCKS.register("kitchen_tile",
       () -> new Block(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> ANDESITE_KITCHEN_TILE =
@@ -99,11 +84,11 @@ public class BlockRegistryHandler {
   public static final RegistryObject<Block> ROAD_BLANK = BLOCKS.register("road_blank",
       () -> new Block(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> ROAD_SOLID = BLOCKS.register("road_solid",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> ROAD_DOUBLE = BLOCKS.register("road_double",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> ROAD_BROKEN = BLOCKS.register("road_broken",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> SANDBAG = BLOCKS.register("sandbag",
       () -> new Block(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> SANDBAG_SLAB = BLOCKS.register("sandbag_slab",
@@ -117,50 +102,99 @@ public class BlockRegistryHandler {
   public static final RegistryObject<Block> ROAD_DOUBLE_SLAB = BLOCKS.register("road_double_slab",
       () -> new OrientableSlabBlockBase(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f)));
   public static final RegistryObject<Block> STOP_SIGN =
-      BLOCKS.register("stop_sign", StopSignBlock::new);
+      BLOCKS.register("stop_sign",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.STOP_SIGN));
   public static final RegistryObject<Block> TRAFFIC_LIGHT =
-      BLOCKS.register("traffic_light", TrafficLightBlock::new);
+      BLOCKS.register("traffic_light",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.TRAFFIC_LIGHT));
   public static final RegistryObject<Block> ROAD_BARRIER =
-      BLOCKS.register("road_barrier", RoadBarrierBlock::new);
+      BLOCKS.register("road_barrier",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.ROAD_BARRIER));
   public static final RegistryObject<Block> POLE_BARRIER =
-      BLOCKS.register("pole_barrier", PoleBarrierBlock::new);
+      BLOCKS.register("pole_barrier",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.POLE_BARRIER));
   public static final RegistryObject<Block> STEEL_POLE_BARRIER =
-      BLOCKS.register("steel_pole_barrier", SteelPoleBarrierBlock::new);
+      BLOCKS.register("steel_pole_barrier",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.STEEL_POLE_BARRIER));
   public static final RegistryObject<Block> STEEL_POLE_BARRIER_SLAB =
-      BLOCKS.register("steel_pole_barrier_slab", SlabSteelPoleBarrierBlock::new);
+      BLOCKS.register("steel_pole_barrier_slab",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.SLAB_STEEL_POLE_BARRIER));
   public static final RegistryObject<Block> POLE_BARRIER_UNLIT =
-      BLOCKS.register("pole_barrier_unlit", UnlitPoleBarrierBlock::new);
+      BLOCKS.register("pole_barrier_unlit",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.UNLIT_POLE_BARRIER));
   public static final RegistryObject<Block> CONCRETE_BARRIER =
-      BLOCKS.register("concrete_barrier", ConcreteBarrierBlock::new);
+      BLOCKS.register("concrete_barrier",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.CONCRETE_BARRIER));
   public static final RegistryObject<Block> STRIPED_CONCRETE_BARRIER =
-      BLOCKS.register("striped_concrete_barrier", StripedConcreteBarrierBlock::new);
+      BLOCKS.register("striped_concrete_barrier",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.STRIPED_CONCRETE_BARRIER));
   public static final RegistryObject<Block> CONCRETE_BARRIER_SLAB =
-      BLOCKS.register("concrete_barrier_slab", SlabConcreteBarrierBlock::new);
+      BLOCKS.register("concrete_barrier_slab",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.SLAB_CONCRETE_BARRIER));
   public static final RegistryObject<Block> STRIPED_CONCRETE_BARRIER_SLAB =
-      BLOCKS.register("striped_concrete_barrier_slab", SlabStripedConcreteBarrierBlock::new);
+      BLOCKS.register("striped_concrete_barrier_slab",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.SLAB_STRIPED_CONCRETE_BARRIER));
   public static final RegistryObject<Block> VENDING_MACHINE =
       BLOCKS.register("vending_machine", OrientableTallBlock::new);
   public static final RegistryObject<Block> STREET_LIGHT_BASE = BLOCKS.register("street_light_base",
-      () -> new BlockBase(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+      () -> new ShapedBlock(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
           BlockShapes.STREET_LIGHT));
   public static final RegistryObject<Block> STREET_LIGHT_CURVE =
-      BLOCKS.register("street_light_curve", StreetLightCurveBlock::new);
+      BLOCKS.register("street_light_curve",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.STREET_LIGHT_CURVE));
   public static final RegistryObject<Block> STREET_LIGHT_DOUBLE_CURVE =
-      BLOCKS.register("street_light_double_curve", StreetLightDoubleCurveBlock::new);
+      BLOCKS.register("street_light_double_curve",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.STREET_LIGHT_DOUBLE_CURVE));
   public static final RegistryObject<Block> STREET_LIGHT_FLAT_CROSS =
       BLOCKS.register("street_light_flat_cross",
-          () -> new BlockBase(
+          () -> new ShapedBlock(
               Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
               BlockShapes.STREET_LIGHT_CROSS));
   public static final RegistryObject<Block> STREET_LIGHT_HEAD =
-      BLOCKS.register("street_light_head", StreetLightHeadBlock::new);
+      BLOCKS
+          .register("street_light_head",
+              () -> new OrientableShapedBlock(Block.Properties.of(Material.STONE)
+                  .strength(5.0f, 5.0f).noOcclusion().lightLevel((state) -> 15),
+                  BlockShapes.STREET_LIGHT_HEAD));
   public static final RegistryObject<Block> STREET_LIGHT_HORIZONTAL_POLE =
-      BLOCKS.register("street_light_horizontal_pole", StreetLightHorizontalBlock::new);
+      BLOCKS.register("street_light_horizontal_pole",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.STREET_LIGHT_HORIZONTAL));
   public static final RegistryObject<Block> STREET_LIGHT_VERTICAL_CROSS =
-      BLOCKS.register("street_light_vertical_cross", StreetLightVerticalCrossBlock::new);
+      BLOCKS.register("street_light_vertical_cross",
+          () -> new OrientableShapedBlock(
+              Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
+              BlockShapes.STREET_LIGHT_VERTICAL_CROSS));
   public static final RegistryObject<Block> STREET_LIGHT_VERTICAL_POLE =
       BLOCKS.register("street_light_vertical_pole",
-          () -> new BlockBase(
+          () -> new ShapedBlock(
               Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion(),
               BlockShapes.STREET_LIGHT_POLE));
   public static final RegistryObject<Block> GOLD_CHAIN =
@@ -173,19 +207,19 @@ public class BlockRegistryHandler {
   public static final RegistryObject<Block> FRIDGE =
       BLOCKS.register("fridge", OrientableTallBlock::new);
   public static final RegistryObject<Block> COUNTER = BLOCKS.register("counter",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> COUNTER_CORNER = BLOCKS.register("counter_corner",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> COUNTER_SINK = BLOCKS.register("counter_sink",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> SINK = BLOCKS.register("sink",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> PLATE =
       BLOCKS.register("plate", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> MILITARY_RADIO = BLOCKS.register("military_radio",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> RADIO = BLOCKS.register("radio",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> FLOWERPOT = BLOCKS.register("flowerpot",
       () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> CERAMIC_POT = BLOCKS.register("ceramic_pot",
@@ -225,37 +259,37 @@ public class BlockRegistryHandler {
   public static final RegistryObject<Block> BROWN_STOOL = BLOCKS.register("brown_stool",
       () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> WHITE_CHAIR = BLOCKS.register("white_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> BLACK_CHAIR = BLOCKS.register("black_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> RED_CHAIR = BLOCKS.register("red_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> BLUE_CHAIR = BLOCKS.register("blue_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> GREEN_CHAIR = BLOCKS.register("green_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> ORANGE_CHAIR = BLOCKS.register("orange_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> MAGENTA_CHAIR = BLOCKS.register("magenta_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> LIGHT_BLUE_CHAIR = BLOCKS.register("light_blue_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> YELLOW_CHAIR = BLOCKS.register("yellow_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> LIME_CHAIR = BLOCKS.register("lime_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> PINK_CHAIR = BLOCKS.register("pink_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> GRAY_CHAIR = BLOCKS.register("gray_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> LIGHT_GRAY_CHAIR = BLOCKS.register("light_gray_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> CYAN_CHAIR = BLOCKS.register("cyan_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> PURPLE_CHAIR = BLOCKS.register("purple_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> BROWN_CHAIR = BLOCKS.register("brown_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.STONE).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.STONE).noOcclusion()));
   public static final RegistryObject<Block> OAK_TABLE = BLOCKS.register("oak_table",
       () -> new Block(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> SPRUCE_TABLE = BLOCKS.register("spruce_table",
@@ -291,22 +325,22 @@ public class BlockRegistryHandler {
       BLOCKS.register("stripped_warped_stem_table",
           () -> new Block(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> OAK_TALL_CHAIR = BLOCKS.register("oak_tall_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> DARK_OAK_TALL_CHAIR =
       BLOCKS.register("dark_oak_tall_chair",
-          () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+          () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> ACACIA_TALL_CHAIR = BLOCKS.register("acacia_tall_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> JUNGLE_TALL_CHAIR = BLOCKS.register("jungle_tall_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> SPRUCE_TALL_CHAIR = BLOCKS.register("spruce_tall_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> BIRCH_TALL_CHAIR = BLOCKS.register("birch_tall_chair",
-      () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+      () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> CRIMSON_STEM_TALL_CHAIR =
       BLOCKS.register("crimson_stem_tall_chair",
-          () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+          () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
   public static final RegistryObject<Block> WARPED_STEM_TALL_CHAIR =
       BLOCKS.register("warped_stem_tall_chair",
-          () -> new OrientableBlockBase(Block.Properties.of(Material.WOOD).noOcclusion()));
+          () -> new OrientableBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
 }

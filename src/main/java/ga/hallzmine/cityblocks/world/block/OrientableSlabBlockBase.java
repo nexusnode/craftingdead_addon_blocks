@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import org.jetbrains.annotations.NotNull;
 
 public class OrientableSlabBlockBase extends SlabBlock {
 
@@ -46,12 +47,16 @@ public class OrientableSlabBlockBase extends SlabBlock {
     }
   }
 
+  @SuppressWarnings("deprecation")
   @Override
+  @NotNull
   public BlockState rotate(BlockState state, Rotation rot) {
     return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
   }
 
+  @SuppressWarnings("deprecation")
   @Override
+  @NotNull
   public BlockState mirror(BlockState state, Mirror mirrorIn) {
     return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
   }

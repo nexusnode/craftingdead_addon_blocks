@@ -6,9 +6,9 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 
-public class OrientableBlockBase extends HorizontalDirectionalBlock {
+public class OrientableBlock extends HorizontalDirectionalBlock {
 
-  public OrientableBlockBase(Properties properties) {
+  public OrientableBlock(Properties properties) {
     super(properties);
   }
 
