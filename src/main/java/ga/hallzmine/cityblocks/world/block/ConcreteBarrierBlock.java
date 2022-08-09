@@ -1,6 +1,5 @@
-package ga.hallzmine.cityblocks.blocks;
+package ga.hallzmine.cityblocks.world.block;
 
-import ga.hallzmine.cityblocks.baseBlocks.OrientableBlockBase;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -16,32 +15,26 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PoleBarrierBlock extends OrientableBlockBase {
+public class ConcreteBarrierBlock extends OrientableBlockBase {
 
-
-  public PoleBarrierBlock() {
-    super(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion());
-    runCalculation(Stream.of(
-        Block.box(1, 0, 7, 3, 13, 9),
-        Block.box(13, 0, 7, 15, 13, 9),
-        Block.box(0, 9.3, 6, 16, 12.3, 7),
-        Block.box(0, 5.3, 6, 16, 8.3, 7),
-        Block.box(1, 13, 7, 3, 15.5, 9),
-        Block.box(13, 13, 7, 15, 15.5, 9)
-    ).reduce((v1, v2) -> {
-      return Shapes.join(v1, v2, BooleanOp.OR);
-    }).get());
-  }
 
   protected static final Map<Direction, VoxelShape> SHAPES = new HashMap<Direction, VoxelShape>();
 
+  public ConcreteBarrierBlock() {
+    super(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion());
+    runCalculation(Stream.of(Block.box(0, 0, 7, 16, 14, 9), Block.box(0, 0, 9, 16, 2, 11),
+        Block.box(0, 0, 5, 16, 2, 7)).reduce((v1, v2) -> {
+          return Shapes.join(v1, v2, BooleanOp.OR);
+        }).get());
+  }
+
   protected static void calculateShapes(Direction to, VoxelShape shape) {
-    VoxelShape[] buffer = new VoxelShape[]{shape, Shapes.empty()};
+    VoxelShape[] buffer = new VoxelShape[] {shape, Shapes.empty()};
 
     int times = (to.get2DDataValue() - Direction.NORTH.get2DDataValue() + 4) % 4;
     for (int i = 0; i < times; i++) {
-      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = Shapes.or(buffer[1],
-          Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
+      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] =
+          Shapes.or(buffer[1], Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
       buffer[0] = buffer[1];
       buffer[1] = Shapes.empty();
     }

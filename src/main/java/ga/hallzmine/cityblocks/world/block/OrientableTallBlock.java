@@ -1,9 +1,7 @@
-package ga.hallzmine.cityblocks.blocks;
+package ga.hallzmine.cityblocks.world.block;
 
-import ga.hallzmine.cityblocks.baseBlocks.OrientableBlockBase;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -11,35 +9,26 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class SteelPoleBarrierBlock extends OrientableBlockBase {
-
-
-  public SteelPoleBarrierBlock() {
-    super(Block.Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion());
-    runCalculation(Stream.of(
-        Block.box(13, 0, 7, 15, 13, 9),
-        Block.box(1, 0, 7, 3, 13, 9),
-        Block.box(0, 9.3, 6, 16, 12.3, 7),
-        Block.box(0, 5.3, 6, 16, 8.3, 7)
-    ).reduce((v1, v2) -> {
-      return Shapes.join(v1, v2, BooleanOp.OR);
-    }).get());
-  }
+public class OrientableTallBlock extends OrientableBlockBase {
 
   protected static final Map<Direction, VoxelShape> SHAPES = new HashMap<Direction, VoxelShape>();
 
+  public OrientableTallBlock() {
+    super(Properties.of(Material.METAL).noOcclusion());
+    runCalculation(Block.box(0, 0, 0, 16, 32, 16));
+  }
+
   protected static void calculateShapes(Direction to, VoxelShape shape) {
-    VoxelShape[] buffer = new VoxelShape[]{shape, Shapes.empty()};
+    VoxelShape[] buffer = new VoxelShape[] {shape, Shapes.empty()};
 
     int times = (to.get2DDataValue() - Direction.NORTH.get2DDataValue() + 4) % 4;
     for (int i = 0; i < times; i++) {
-      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = Shapes.or(buffer[1],
-          Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
+      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] =
+          Shapes.or(buffer[1], Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
       buffer[0] = buffer[1];
       buffer[1] = Shapes.empty();
     }
@@ -58,7 +47,4 @@ public class SteelPoleBarrierBlock extends OrientableBlockBase {
       CollisionContext context) {
     return SHAPES.get(state.getValue(HorizontalDirectionalBlock.FACING));
   }
-
-
 }
-

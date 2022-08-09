@@ -1,4 +1,4 @@
-package ga.hallzmine.cityblocks.baseBlocks;
+package ga.hallzmine.cityblocks.world.item;
 
 import ga.hallzmine.cityblocks.CityBlocksMod;
 import net.minecraft.world.item.BlockItem;

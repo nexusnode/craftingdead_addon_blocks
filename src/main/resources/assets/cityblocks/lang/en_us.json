@@ -1,4 +1,5 @@
 {
+  "itemGroup.cityblocksTab": "Crafting Dead Addon Blocks",
   "block.cityblocks.road_blank": "Blank Road",
   "block.cityblocks.road_solid": "Solid Road",
   "block.cityblocks.road_broken": "Broken Road",
@@ -118,6 +119,5 @@
   "block.cityblocks.cracked_polished_basalt_bricks": "Cracked Polished Basalt Bricks",
   "block.cityblocks.cracked_basalt_bricks": "Cracked Basalt Bricks",
   "block.cityblocks.stripped_cherry_log": "Stripped Cherry Log",
-  "block.cityblocks.cherry_planks": "Cherry Planks",
-  "itemGroup.cityblocksTab": "Hallz's City Blocks"
+  "block.cityblocks.cherry_planks": "Cherry Planks"
 }

@@ -1,5 +1,4 @@
-package ga.hallzmine.cityblocks.baseBlocks;
-
+package ga.hallzmine.cityblocks.world.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

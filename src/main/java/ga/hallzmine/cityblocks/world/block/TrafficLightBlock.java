@@ -1,6 +1,5 @@
-package ga.hallzmine.cityblocks.blocks;
+package ga.hallzmine.cityblocks.world.block;
 
-import ga.hallzmine.cityblocks.baseBlocks.OrientableBlockBase;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.core.BlockPos;
@@ -16,21 +15,20 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TrafficLightBlock extends OrientableBlockBase {
 
+  protected static final Map<Direction, VoxelShape> SHAPES = new HashMap<Direction, VoxelShape>();
 
   public TrafficLightBlock() {
     super(Properties.of(Material.STONE).strength(5.0f, 5.0f).noOcclusion());
     runCalculation(Block.box(5, 0, 21, 11, 16, 23));
   }
 
-  protected static final Map<Direction, VoxelShape> SHAPES = new HashMap<Direction, VoxelShape>();
-
   protected static void calculateShapes(Direction to, VoxelShape shape) {
-    VoxelShape[] buffer = new VoxelShape[]{shape, Shapes.empty()};
+    VoxelShape[] buffer = new VoxelShape[] {shape, Shapes.empty()};
 
     int times = (to.get2DDataValue() - Direction.NORTH.get2DDataValue() + 4) % 4;
     for (int i = 0; i < times; i++) {
-      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = Shapes.or(buffer[1],
-          Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
+      buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] =
+          Shapes.or(buffer[1], Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
       buffer[0] = buffer[1];
       buffer[1] = Shapes.empty();
     }
