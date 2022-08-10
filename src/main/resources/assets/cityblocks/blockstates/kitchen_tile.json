@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/kitchen_tile" }
+    "": {
+      "model": "cityblocks:block/kitchen_tile"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/ceramic_pot" }
+    "": {
+      "model": "cityblocks:block/ceramic_pot"
+    }
   }
 }

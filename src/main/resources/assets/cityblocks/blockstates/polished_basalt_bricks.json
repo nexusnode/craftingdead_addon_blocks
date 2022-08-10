@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/polished_basalt_bricks" }
+    "": {
+      "model": "cityblocks:block/polished_basalt_bricks"
+    }
   }
 }

@@ -1,1 +1,7 @@
-{"variants": {"":  { "model": "cityblocks:block/stools/light_blue_stool" }}}
+{
+    "variants": {
+        "": {
+            "model": "cityblocks:block/stools/light_blue_stool"
+        }
+    }
+}

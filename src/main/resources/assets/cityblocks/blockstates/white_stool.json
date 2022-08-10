@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/stools/white_stool" }
+    "": {
+      "model": "cityblocks:block/stools/white_stool"
+    }
   }
 }

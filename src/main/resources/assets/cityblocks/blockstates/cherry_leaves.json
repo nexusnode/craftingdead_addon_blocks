@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "cityblocks:block/cherry_leaves" }
+    "": {
+      "model": "cityblocks:block/cherry_leaves"
+    }
   }
 }

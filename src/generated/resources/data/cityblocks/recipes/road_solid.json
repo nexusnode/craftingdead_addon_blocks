@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "i#i",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "cityblocks:road_blank"
+    },
+    "i": {
+      "tag": "forge:dyes/white"
+    }
+  },
+  "result": {
+    "item": "cityblocks:road_solid",
+    "count": 7
+  }
+}

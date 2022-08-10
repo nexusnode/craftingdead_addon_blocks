@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/counter_solid" }
+    "": {
+      "model": "cityblocks:block/counter_solid"
+    }
   }
 }

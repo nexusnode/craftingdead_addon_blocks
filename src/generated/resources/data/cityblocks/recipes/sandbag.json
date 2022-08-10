@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#i#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:string"
+    },
+    "i": {
+      "item": "minecraft:sand"
+    }
+  },
+  "result": {
+    "item": "cityblocks:sandbag",
+    "count": 5
+  }
+}

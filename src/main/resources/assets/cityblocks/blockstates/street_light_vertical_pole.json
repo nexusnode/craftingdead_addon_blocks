@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/street_light/street_light_vertical_pole" }
+    "": {
+      "model": "cityblocks:block/street_light/street_light_vertical_pole"
+    }
   }
 }

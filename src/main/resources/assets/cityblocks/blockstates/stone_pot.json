@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/stone_pot" }
+    "": {
+      "model": "cityblocks:block/stone_pot"
+    }
   }
 }

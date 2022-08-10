@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/tables/dark_oak_table" }
+    "": {
+      "model": "cityblocks:block/tables/dark_oak_table"
+    }
   }
 }

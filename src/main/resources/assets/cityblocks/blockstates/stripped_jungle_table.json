@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/tables/stripped_jungle_table" }
+    "": {
+      "model": "cityblocks:block/tables/stripped_jungle_table"
+    }
   }
 }

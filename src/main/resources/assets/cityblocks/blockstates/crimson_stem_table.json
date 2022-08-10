@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/tables/crimson_stem_table" }
+    "": {
+      "model": "cityblocks:block/tables/crimson_stem_table"
+    }
   }
 }

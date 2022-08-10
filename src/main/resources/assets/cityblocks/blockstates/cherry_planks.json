@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/cherry_planks" }
+    "": {
+      "model": "cityblocks:block/cherry_planks"
+    }
   }
 }

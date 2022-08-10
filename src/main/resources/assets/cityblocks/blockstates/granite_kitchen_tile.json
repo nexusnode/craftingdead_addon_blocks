@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/granite_kitchen_tile" }
+    "": {
+      "model": "cityblocks:block/granite_kitchen_tile"
+    }
   }
 }

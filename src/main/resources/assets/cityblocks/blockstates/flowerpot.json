@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/flowerpot" }
+    "": {
+      "model": "cityblocks:block/flowerpot"
+    }
   }
 }

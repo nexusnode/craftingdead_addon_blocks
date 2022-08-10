@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "i",
+    "i"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:red_concrete"
+    },
+    "i": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "result": {
+    "item": "cityblocks:stop_sign"
+  }
+}

@@ -1,1 +1,19 @@
-{"variants":{"facing=east":{"model":"cityblocks:block/stools/spruce_tall_chair","y":90},"facing=north":{"model":"cityblocks:block/stools/spruce_tall_chair"},"facing=west":{"model":"cityblocks:block/stools/spruce_tall_chair","y":270},"facing=south":{"model":"cityblocks:block/stools/spruce_tall_chair","y":180}}}}
+{
+    "variants": {
+        "facing=east": {
+            "model": "cityblocks:block/stools/spruce_tall_chair",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "cityblocks:block/stools/spruce_tall_chair"
+        },
+        "facing=west": {
+            "model": "cityblocks:block/stools/spruce_tall_chair",
+            "y": 270
+        },
+        "facing=south": {
+            "model": "cityblocks:block/stools/spruce_tall_chair",
+            "y": 180
+        }
+    }
+}

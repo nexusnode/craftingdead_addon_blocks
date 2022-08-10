@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/polished_obsidian" }
+    "": {
+      "model": "cityblocks:block/polished_obsidian"
+    }
   }
 }

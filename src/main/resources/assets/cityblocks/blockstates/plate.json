@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/plate" }
+    "": {
+      "model": "cityblocks:block/plate"
+    }
   }
 }

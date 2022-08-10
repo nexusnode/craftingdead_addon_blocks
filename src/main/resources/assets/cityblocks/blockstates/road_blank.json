@@ -1,5 +1,7 @@
 {
   "variants": {
-    "":  { "model": "cityblocks:block/road/road_blank" }
+    "": {
+      "model": "cityblocks:block/road/road_blank"
+    }
   }
 }

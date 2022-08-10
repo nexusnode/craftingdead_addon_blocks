@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cityblocks:steel_pole_barrier"
+    },
+    {
+      "item": "cityblocks:road_blank_slab"
+    }
+  ],
+  "result": {
+    "item": "cityblocks:steel_pole_barrier_slab"
+  }
+}
