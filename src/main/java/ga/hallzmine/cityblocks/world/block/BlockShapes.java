@@ -18,6 +18,37 @@ public class BlockShapes {
   public static final VoxelShape STREET_LIGHT_CROSS =
       Shapes.join(Block.box(0, 7, 7, 16, 9, 9), Block.box(7, 7, 0, 9, 9, 16), BooleanOp.OR);
   public static final VoxelShape STREET_LIGHT_POLE = Block.box(7, 0, 7, 9, 16, 9);
+  public static final VoxelShape STOOL = Stream
+      .of(Block.box(12, 0, 2, 14, 2, 4), Block.box(1.5, 1.5, 1.5, 14.5, 3.5, 14.5),
+          Block.box(1, 3, 1, 15, 8, 15), Block.box(2, 0, 2, 4, 2, 4), Block.box(2, 0, 12, 4, 2, 14),
+          Block.box(12, 0, 12, 14, 2, 14))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
+  public static final VoxelShape TABLE = Stream
+      .of(Block.box(1, 0, 1, 3, 13, 3), Block.box(1, 0, 13, 3, 13, 15),
+          Block.box(13, 0, 1, 15, 13, 3), Block.box(13, 0, 13, 15, 13, 15),
+          Block.box(0, 13, 0, 16, 16, 16), Block.box(3, 9, 1.5, 13, 10, 2.5),
+          Block.box(13.5, 8, 3, 14.5, 9, 13), Block.box(3, 9, 13.5, 13, 10, 14.5),
+          Block.box(1.5, 8, 3, 2.5, 9, 13))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
+  public static final VoxelShape FLOWER_POT = Stream
+      .of(Block.box(6.5, 9, 6.25, 8, 12, 8), Block.box(4, 0, 4, 12, 7, 12),
+          Block.box(4.5, 7, 4.5, 11.5, 9, 11.5), Block.box(11, 7.5, 4, 12, 9.5, 12),
+          Block.box(4, 7.5, 4, 5, 9.5, 12), Block.box(5, 7.5, 4, 11, 9.5, 5),
+          Block.box(5, 7.5, 11, 11, 9.5, 12), Block.box(7, 9, 7, 9, 30, 9),
+          Block.box(3, 16, 3, 13, 32, 13), Block.box(8, 9, 8, 10, 11, 10),
+          Block.box(6.5, 9, 8, 8.5, 10, 9.75), Block.box(7.5, 9, 6.5, 9.5, 10, 7.5))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
+  public static final VoxelShape PLATE = Stream.of(Block.box(6.34315, 0.05, 4, 9.65685, 0.3, 12),
+      Block.box(6.34315, 0, 4, 9.65685, 0.25, 12), Block.box(4, 0.025, 6.34315, 12, 0.275, 9.65685),
+      Block.box(4, 0, 6.34315, 12, 0.25, 9.65685), Block.box(5.92893, 0.225, 3, 10.07107, 0.475, 4),
+      Block.box(5.92893, 0.25, 3, 10.07107, 0.5, 4),
+      Block.box(5.92893, 0.225, 12, 10.07107, 0.475, 13),
+      Block.box(5.92893, 0.25, 12, 10.07107, 0.5, 13),
+      Block.box(3, 0.225, 5.92893, 4, 0.475, 10.07107),
+      Block.box(3, 0.25, 5.92893, 4, 0.5, 10.07107),
+      Block.box(12, 0.225, 5.92893, 13, 0.475, 10.07107),
+      Block.box(12, 0.25, 5.92893, 13, 0.5, 10.07107))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
   public static final Map<Direction, VoxelShape> CONCRETE_BARRIER =
       BlockShapes.computeOrientableShape(Stream
@@ -92,9 +123,61 @@ public class BlockShapes {
           .of(Block.box(13, 0, 7, 15, 13, 9), Block.box(1, 0, 7, 3, 13, 9),
               Block.box(0, 9.3, 6, 16, 12.3, 7), Block.box(0, 5.3, 6, 16, 8.3, 7))
           .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
+  public static final Map<Direction, VoxelShape> CHAIR = BlockShapes.computeOrientableShape(Stream
+      .of(Block.box(12, 0, 2, 14, 2, 4), Block.box(1.5, 1.5, 1.5, 14.5, 3.5, 14.5),
+          Block.box(1, 3, 1, 15, 8, 15), Block.box(2, 0, 2, 4, 2, 4), Block.box(2, 0, 12, 4, 2, 14),
+          Block.box(12, 0, 12, 14, 2, 14), Block.box(3.5, 11.5, 14, 12.5, 25.25, 14),
+          Block.box(1.5, 8, 13.5, 3.5, 29, 14.5), Block.box(12.5, 8, 13.5, 14.5, 29, 14.5),
+          Block.box(3.5, 25.25, 13.75, 12.5, 26.75, 14.25),
+          Block.box(3.5, 10, 13.75, 12.5, 11.5, 14.25))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
+  public static final Map<Direction, VoxelShape> TALL_CHAIR =
+      BlockShapes.computeOrientableShape(Stream
+          .of(Block.box(4, 10, 12.5, 12, 23, 13.5), Block.box(2, 9, 2, 14, 10, 14),
+              Block.box(12, 0, 12, 14.025, 8, 14.025), Block.box(12, 8, 12, 14.025, 24, 14.025),
+              Block.box(12, 0, 2, 14, 9, 4), Block.box(1.975, 8, 12, 4, 24, 14.025),
+              Block.box(1.975, 0, 12, 4, 8, 14.025), Block.box(2, 0, 2, 4, 9, 4))
+          .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
+  public static final Map<Direction, VoxelShape> RADIO =
+      computeOrientableShape(Shapes.join(Block.box(12.5, 9.25, 7.5, 13.5, 16.25, 8.5),
+          Block.box(1, 0, 6, 15, 9, 10), BooleanOp.OR));
+  public static final Map<Direction, VoxelShape> MILITARY_RADIO = computeOrientableShape(Stream
+      .of(Block.box(9, 18, 11, 11, 19, 13), Block.box(12, 18, 11, 14, 19, 13),
+          Block.box(2.25, 18, 11.25, 3.75, 21, 12.75), Block.box(1, 18, 16, 15, 24, 18),
+          Block.box(1, 0, 10, 15, 18, 16), Block.box(2.5, 21, 11.5, 3.5, 32, 12.5))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
+  public static final Map<Direction, VoxelShape> SINK = computeOrientableShape(Stream
+      .of(Block.box(5, 0, 9, 11, 11, 16), Block.box(2, 11, 13, 14, 16, 16),
+          Block.box(2, 11, 6, 14, 16, 7), Block.box(13, 11, 7, 14, 16, 13),
+          Block.box(2, 11, 7, 3, 16, 13), Block.box(3, 11, 7, 13, 12, 13),
+          Block.box(7.25, 16, 13.75, 8.75, 21, 15.25),
+          Block.box(7.25, 19.5, 11.25, 8.75, 21, 13.75),
+          Block.box(4.25, 16, 13.75, 5.75, 17, 15.25),
+          Block.box(10.25, 16, 13.75, 11.75, 17, 15.25))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
+  public static final Map<Direction, VoxelShape> COUNTER_SINK = computeOrientableShape(Stream
+      .of(Block.box(2, 10.75, 12, 14, 15.75, 15), Block.box(2, 10.75, 5, 14, 15.75, 6),
+          Block.box(13, 10.75, 6, 14, 15.75, 12), Block.box(2, 10.75, 6, 3, 15.75, 12),
+          Block.box(7.25, 15.75, 12.75, 8.75, 20.75, 14.25),
+          Block.box(7.25, 19.25, 10.25, 8.75, 20.75, 12.75),
+          Block.box(4.25, 15.75, 12.75, 5.75, 16.75, 14.25),
+          Block.box(10.25, 15.75, 12.75, 11.75, 16.75, 14.25), Block.box(0, 0, 2, 16, 12.5, 16),
+          Block.box(0, 12.5, 0.5, 16, 16, 5), Block.box(0, 12.5, 5, 2, 16, 16),
+          Block.box(2, 12.5, 15, 14, 16, 16), Block.box(14, 12.5, 5, 16, 16, 16))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
+  public static final Map<Direction, VoxelShape> COUNTER_CORNER = computeOrientableShape(Shapes
+      .join(Block.box(0.5, 12.5, 0.5, 16, 16, 16), Block.box(2, 0, 2, 16, 12.5, 16), BooleanOp.OR));
+  public static final Map<Direction, VoxelShape> COUNTER = computeOrientableShape(Shapes
+      .join(Block.box(0, 12.5, 0.5, 16, 16, 16), Block.box(0, 0, 2, 16, 12.5, 16), BooleanOp.OR));
+  public static final Map<Direction, VoxelShape> FRIDGE = computeOrientableShape(Stream
+      .of(Block.box(13, 1.75, 2, 14, 21.75, 3), Block.box(13, 23.75, 2, 14, 31.25, 3),
+          Block.box(1.25, 23.25, 3.5, 14.75, 31.75, 4), Block.box(1.25, 1.25, 3.5, 14.75, 22.25, 4),
+          Block.box(1, 1, 2.5, 15, 22.5, 3.5), Block.box(1, 23, 2.5, 15, 32, 3.5),
+          Block.box(1, 0, 4, 15, 32, 16))
+      .reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
 
   /**
-   * Creates rotates a shape and creates a map for each direction
+   * Rotates a shape and creates a map for each direction
    *
    * @param in - initial north facing shape
    * @return rotated shapes for each direction
